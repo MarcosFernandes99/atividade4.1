@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS RESET */
+
+
+body {
+    background-color: rgb(192, 43, 160);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+
+}
+
+.navBar {
+    margin-top: 10vh
+}
+
+.navOptions {
+    background-color: yellow;
+    padding: 2vh;
+    margin-left: 5vw;
+    border-radius: 2vh;
+
+}
+
+img {
+    margin-top: 10vh;
+    border-radius: 2vh;
+    margin-left: 5vw;
+}
+
+.container {
+    display: grid;
+    background-color: white;
+    padding: 3vh;
+    margin-top: 10vh;   
+    margin-left: 15vw;
+    margin-right: 15vw;
+    gap: 2vw;
+    grid-template-areas: 
+        'destaque destaque destaque precoOne'
+        'destaque destaque destaque precoTwo'
+        'recursos recursos recursos recursos'
+        'sobre sobre sobre sobre'
+        'galeria galeria galeria galeria'
+    ;
+}
+
+.container div {
+    border: 0.2vh solid black;
+    margin: 1vh;
+    padding: 2vh;
+}
+
+#destaque {
+    grid-area: destaque;
+    height: 40vh;
+}
+
+#precoOne {
+    grid-area: precoOne;
+}
+
+#precoTwo {
+    grid-area: precoTwo;
+}
+
+.recursos{
+    height: 20vh;
+}
+   
+
+#sobre {
+    grid-area: sobre;
+    height: 40vh;
+}
+
+.galeria {
+    height: 20vh;   
+}
+
+
