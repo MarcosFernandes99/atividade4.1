@@ -19,6 +19,12 @@ header {
 
 }
 
+img {
+    width: 100%;
+    height: 100%;
+   
+}
+
 .navBar {
     margin-top: 10vh
 }
@@ -65,18 +71,24 @@ img {
     height: 40vh;
 }
 
+img {
+    height: 40vh;
+}
+
+
 #precoOne {
     grid-area: precoOne;
+    background-color: yellow;
 }
 
 #precoTwo {
     grid-area: precoTwo;
+    background-color: yellow;
 }
 
 .recursos{
     height: 20vh;
-}
-   
+}   
 
 #sobre {
     grid-area: sobre;
@@ -86,5 +98,26 @@ img {
 .galeria {
     height: 20vh;   
 }
+
+.texto {
+   text-align: center;
+   
+}
+
+.preco {
+    font-size: 7vh;
+    margin-top: 2vh;
+    text-align: center;
+}
+
+.titulo {
+    text-align: center;
+    margin-top: 1vh;
+}
+.textoR {
+    margin-top: 2vh;
+    text-align: center;
+}
+
 
 

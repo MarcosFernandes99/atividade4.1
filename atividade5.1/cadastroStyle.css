@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS RESET TERMINA AQUI */
+
+header {
+    height: 10vh;
+    background-color: #042940;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    margin-right: 3vw;
+}
+
+.navOption {
+    margin-left: 5vw;
+    color: white;
+    font-size: 3vh;
+}
+
+.logoClean {
+    margin-left: 1vw;
+}
+.titulo {
+    text-align: center;
+    margin-top: 2vh;
+}
+
+.cadastro {
+    border: 2px;
+    margin-top: 10vh;
+    text-align: center;
+}
+
+.propriedades {
+    margin-top: 2vh;
+    font-size: 3vh;
+}
+
+.btn {
+    background-color: #042940;
+    height: 5vh;
+    border-radius: 1vh;
+    padding: 1vh 1vh 1vh 1vh;
+    color: white;
+    cursor: pointer;
+    
+}
+
