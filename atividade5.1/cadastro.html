@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="cadastroStyle.css">
+    <script src="cadastro.js" defer></script>
 </head>
 
 <body>
@@ -20,12 +21,20 @@
     </header>
     <div class="titulo"><h1>Cadastre seu filme</h1></div>
 
-    <form action="" class="cadastro">
+    <form id="form" action="" class="cadastro">
 
-        <p class="propriedades">Título:<input type="text"></p>
-        <p class="propriedades">Gênero:<input type="text"></p>
-        <p class="propriedades">Nota:<input type="text"></p>
-        <p class="propriedades">Sinopse:<input type="text"></p>
+        <label class="propriedades"for="titulo">Título:</label> 
+        <input id="titulo"type="text">
+
+        <label class="propriedades"for="sinopse">Sinopse:</label>
+        <input id="sinopse"type="text">
+
+        <label class="propriedades"for="genero">Gênero:</label>
+        <input id="genero"type="text">
+
+        <label class="propriedades"for="nota">Nota:</label>
+        <input id="nota"type="text">        
+        
         <button class="btn propriedades" type="submit">Enviar</button>
 
 
