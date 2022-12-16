@@ -21,9 +21,20 @@ function criarElemento(json){
       
         // CRIANDO ELEMENTO HTML
         let div = document.createElement('div')
-        // ADICIONANDO UM TEXTO  NA LISTA
-        div.appendChild(document.createTextNode(['Titulo:' + element.title + 'Sinopse:' + element.overview + 'Gênero:' + element.genre + 'Nota:' + element.vote_average]))
+        let pTitulo = document.createElement('p')
+        let pSinopse = document.createElement('p')
+        let pGenero = document.createElement('p')
+        let pNota = document.createElement('p')
+        // ADICIONANDO UM TEXTO  NO PARAGRAFO
+        pTitulo.appendChild(document.createTextNode("TÍTULO:  " + element.title))
+        pSinopse.appendChild(document.createTextNode("SINOPSE:  "+ element.overview))
+        pGenero.appendChild(document.createTextNode("GÊNERO:  " + element.genre))
+        pNota.appendChild(document.createTextNode("NOTA:  " + element.vote_average))
         // ADICIONANDO UM ELEMENTO
+        div.appendChild(pTitulo)
+        div.appendChild(pSinopse)
+        div.appendChild(pGenero)
+        div.appendChild(pNota)
         document.querySelector('.container').appendChild(div) //appendChild = adicionando um filho
 }
 }
