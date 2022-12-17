@@ -1,69 +1,71 @@
-let estudantes = []
-let tarefas = []
-let grades = []
+buscarEntregasPorEstudantes(2)
 
-fetch('https://apigenerator.dronahq.com/api/g4C15xPP/students', )
-.then(function(response) {
-    return response.json()
-})
+async function buscarEntregasPorEstudantes(id) {
+    let estudantes = await buscarEstudantes()
+    let grade = await buscarGrade()
+    let tarefas = await buscarTarefa()
 
-.then(function(data){
-    salvarEstudantes(data)
-})
-
-fetch('https://apigenerator.dronahq.com/api/75U0yEKU/tasks', )
-.then(function(response) {
-    return response.json()
-})
-
-.then(function(data){
-    salvarTarefas(data)
-})
-
-fetch('https://apigenerator.dronahq.com/api/5Bba_f-L/grades', )
-.then(function(response) {
-    return response.json()
-})
-
-.then(function(data){
-    salvarGrades(data)
-})
-
-function salvarEstudantes(json){
-    for (let index = 0; index < json.length; index++) {
-        estudantes[index] = json[index]
-    }  
+    let estudante = addNome(estudantes, id)
+    let nota = addNota(grade, id)
+    let tarefa = addTitulo(tarefas, grade, id)
+    
+    console.log("Nome do Aluno: " + estudante)
+    console.log("Nota: " + nota)
+    console.log("Título da tarefa: " + tarefa)
 }
-function salvarTarefas(json){
-    for (let index = 0; index < json.length; index++) {
-        tarefas[index] = json[index]
-    } 
+
+
+async function buscarEstudantes() {
+    let result = await fetch('https://apigenerator.dronahq.com/api/g4C15xPP/students')
+    result = await result.json()
+    return result
 }
-function salvarGrades(json){
-    for (let index = 0; index < json.length; index++) {
-        grades[index] = json[index]
-    } 
+async function buscarGrade() {
+    let result = await fetch('https://apigenerator.dronahq.com/api/5Bba_f-L/grades')
+    result = await result.json()
+    return result
 }
-console.log(estudantes)
-console.log(tarefas)
-console.log(grades)
+async function buscarTarefa() {
+    let result = await fetch('https://apigenerator.dronahq.com/api/75U0yEKU/tasks')
+    result = await result.json()
+    return result
+}
 
-buscarEntregas(1)
-function buscarEntregas (id){
-    let entregas = []
-    console.log(estudantes[1].name)
+function addNome(obj, id) {
+    for (let index = 0; index < obj.length; index++) {
 
-for (let index = 0; index < estudantes.length; index++) {
-    console.log(estudantes[index][id])
-
-    if(estudantes[index].id === id){
-        entregas.push(estudantes[index][name])
+        if (obj[index].id === id) {
+            return obj[index].Name
+        }
     }
-    console.log(entregas)
 }
 
+function addNota(obj, id) {
+    for (let index = 0; index < obj.length; index++) {
 
-
+        if (obj[index].studentId === id) { // aqui não funciona a comparação se eu colocar qualquer outra propriedade, funciona somente com ID
+            return obj[index].number
+        }
+    }
 }
 
+function addTitulo(objTarefas, objGrades, id) {
+    let idTarefa = 0
 
+    for (let i = 0; i < objGrades.length; i++) {
+    
+        if (objGrades[i].studentId  === id) {
+            idTarefa = objGrades[i].taskId
+        }
+    }
+
+    for (let index = 0; index < objTarefas.length; index++) {
+
+        if (objTarefas[index].id === idTarefa) { // se eu colocar a variável não vai mas o número direto foi
+            console.log('entrou')
+            return objTarefas[index].title
+        }
+
+    }
+
+}
